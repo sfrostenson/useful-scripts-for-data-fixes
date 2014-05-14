@@ -13,11 +13,6 @@ def read(filename):
 
     return data
 
-def write(data, filename):
-    with open(filename, 'wb') as f:
-        writer = csv.writer(f)
-        writer.writerows(data)
-
 # read file, remove headers
 data = read('query_result.csv')
 h = data.pop(0)
@@ -87,4 +82,7 @@ for primary_key in unique_keys:
                     to_print.append(year_this)
 
 
-write(to_print, 'output.csv')
+with open('output.csv', 'wb') as f:
+  writer = csv.writer(f)
+  writer.writerow(h)
+  writer.writerows(to_print)
