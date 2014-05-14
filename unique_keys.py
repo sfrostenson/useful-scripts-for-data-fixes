@@ -1,3 +1,7 @@
+#This script was used to identify institutions for whom we had consecutive years of data, 
+#i.e. a group with data from 2008 and 2007 would be returned but a group with 2009 and 2007 data would be skipped
+#as the goal of this script was to identify which groups could be backfilled with the more recent year of information.
+
 import csv
 
 def read(filename):
@@ -29,7 +33,6 @@ for row in data:
 
 # get unique primary keys by performing set, then convert to a list
 unique_keys = list(set(primary_keys))
-print len(unique_keys)
 
 # this is where we'll save our data
 to_print = []
